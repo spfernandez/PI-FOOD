@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,300;0,500;1,700&display=swap');
+
+
+:root {
+    --dar-see-gree: rgb(143, 188, 139);
+    --medium-aquamarine: rgb(102, 205, 170);
+    --gold: rgb(255, 215, 0);
+    --dark-magenta: rgb(139, 0, 139);
+    --marron: #eeda95;
+    --verde: #b7c27e;
+    --verde-light: #d8f171;
+    --gris: #9a927b;
+    --verde-oliva: #556b2f; 
+    --lila: #8a6a6b;
+    --morado: #805566;
+    --black: #000000;
+    --white: #ffffff;
+    --red-hat-display: 'Red Hat Display', sans-serif;
+    --montserrat-alternates: 'Montserrat Alternates', sans-serif;
+  }
+
+
+.search_input {
+    font-family: var(--montserrat-alternates);
+    background-color: #333;
+    color: var(--white);
+    margin-left: 10px;
+    width: 2rem;
+    font-size: 15px;
+    padding: 5px;
+    width: fit-content;
+    border-radius: 5px;
+    border: none;
+    text-align: center;
+}
+
+.search_button {
+    font-family: var(--montserrat-alternates);
+    font-size: 15px;
+    color: var(--white);
+    background-color: #333;
+    padding: 5px;
+    margin-right: 3px;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 2px 2px 4px var(--white);
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.search_button:hover {
+    transform: translateY(-2px);
+    box-shadow: 4px 4px 8px var(--gold);
+}

@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@300;500;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,300;0,500;1,700&display=swap');
+
+
+:root {
+  --medium-aquamarine: rgb(102, 205, 170);
+  --gold: rgb(255, 215, 0);
+  --dark-magenta: rgb(139, 0, 139);
+   --marron: #eeda95;
+   --verde: #b7c27e;
+   --verde-light: #d8f171;
+   --gris: #9a927b;
+   --verde-oliva: #556b2f; 
+   --lila: #8a6a6b;
+   --morado: #805566;
+   --black: #000000;
+    --white: #ffffff;
+    --red-hat-display: 'Red Hat Display', sans-serif;
+    --montserrat-alternates: 'Montserrat Alternates', sans-serif;
+
+}
+
+.filter {
+    font-family: var(--montserrat-alternates);
+    font-size: 15px;
+    color:var(--black);
+    background-color: var(--gold);
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+  }
+
+  .opt {
+    background-color: #555;
+    color: white;
+  }
+  
+  .opt:checked {
+    background-color: #fff;
+    color: black;
+  }

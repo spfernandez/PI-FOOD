@@ -10,43 +10,32 @@ const getAllRecipes = async () => {
     
     const apiRecipes = apiFood.data.results.map(d => {
         
-        const step = [...new Set(d.analyzedInstructions.flatMap(el => el.steps.map(s => s.step)))];
-        const ingredients = [...new Set(d.analyzedInstructions.flatMap(s => s.steps.flatMap(i => i.ingredients.map(n => n.name))))];
-        const cookWare = [...new Set(d.analyzedInstructions.flatMap(s => s.steps.flatMap(e => e.equipment.map(n => n.name))))];
-        if(!cookWare.length) cookWare.push('Unspecified data');
+        const step = d.analyzedInstructions && d.analyzedInstructions.length > 0 ? [...new Set(d.analyzedInstructions.flatMap(el => el.steps.map(s => s.step)))] : [];
+        if(!step.length) step.push('Unspecified data')
 
-        const diets = d.diets;
-        if(d.vegetarian && !diets.includes("vegetarian")) diets.push("vegetarian");
+        const diets = d.diets.map(diet => diet);
+        if(d.vegetarian && !diets.includes("vegetarian")) diets.push("vegetarian")
         if(d.vengan && !diets.includes("vegan")) diets.push("vegan");
-        if(d.glutenFree && !diets.includes("gluten free")) diets.push('gluten free');
-        if(!diets.length) diets.push('Unspecified data');
+        if(!diets.length) diets.push('unspecified data');
     
 
         return {
             id: d.id,
             name: d.title,
-            summary: d.summary,
+            summary: d.summary.replace(/<.*?>/g, ''),
             healthScore: d.healthScore,
-            steps: { 
-                ingredients, 
-                cookWare,
-                step 
-            },           
-            time: d.readyInMinutes + " minutes",
+            steps: step,
             image: d.image,
+            price: d.price,
             diets,
-            vegetarian: d.vegetarian,
-            vegan: d.vegan,
-            glutenFree: d.glutenFree,
-            created: false
+            createdInDb: false
         } 
-
+        
     });
-    
     
 
     // hago el llamado a la db para que me devuelva todos los registros incluyendo el model diets.name
-    const dbRecipes = await Recipe.findAll({
+    const dbInfo = await Recipe.findAll({
         include: {
             model: Diets,
             attributes: ['name'],
@@ -54,12 +43,31 @@ const getAllRecipes = async () => {
                 attributes: []
             }
         }
+        
     });
+
+    const dbRecipes = dbInfo.map(data => {
+        
+        return {
+            id: data.id,
+            name: data.name,
+            summary: data.summary,
+            healthScore: data.healthScore,
+            steps: data.steps,
+            image: data.image,
+            price: data.price,
+            diets: data.diets.map(d => d.name),
+            createdInDb: data.createdInDb
+        }
+    })
+    
+    
     
     //aca pido que me retorne tanto la api como la db en una sola matriz
     return [...apiRecipes, ...dbRecipes]
      
 };
+
 
 
 //controlador para que busque el nombre y envíe la respueta al handler
@@ -90,9 +98,9 @@ const getRecipeById = async (id) => {
 }
 
 //controlador para crear una receta
-const createRecipe = async ({name, summary, healthScore, steps, time, image, diets, createdInDb}) => {
+const createRecipe = async ({name, summary, healthScore, steps, image, diets, price, createdInDb}) => { 
 
-    if(!name || !summary || !healthScore || !steps || !time || !image || !diets ){
+    if(!name || !summary || !healthScore || !steps || !image || !diets ){ 
         throw new Error('Missing data')
     }
 
@@ -100,9 +108,9 @@ const createRecipe = async ({name, summary, healthScore, steps, time, image, die
         name,
         summary,
         healthScore,
-        steps, 
-        time,
+        steps,
         image,
+        price,
         createdInDb
     });
 
@@ -115,7 +123,9 @@ const createRecipe = async ({name, summary, healthScore, steps, time, image, die
 
 }
 
-const updateRecipes = async (id, name, summary, healthScore, steps, time, image, diets) => {
+
+//controlador para actualizar datos con busqueda por id
+const updateRecipes = async (id, name, summary, healthScore, steps, image, diets) => { 
 
     if(!id) throw new Error(`The ${id} does not exist`);
 
@@ -124,15 +134,15 @@ const updateRecipes = async (id, name, summary, healthScore, steps, time, image,
         summary: summary,
         healthScore: healthScore,
         steps: steps,
-        time: time,
         image: image,
-        diets: diets
+        diets: diets 
     }, {
         where: {id: id}
     })
     return updateRecipe;
 } 
 
+// controlador para eliminar id
 const deleteById = async (id) => {
 
     const recipeById= await Recipe.findByPk(id);

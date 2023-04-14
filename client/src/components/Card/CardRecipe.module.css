@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@300;500;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,300;0,500;1,700&display=swap');
+
+
+:root {
+  --dar-see-gree: rgb(143, 188, 139);
+  --medium-aquamarine: rgb(102, 205, 170);
+  --gold: rgb(255, 215, 0);
+  --dark-magenta: rgb(139, 0, 139);
+   --marron: #eeda95;
+   --verde: #b7c27e;
+   --verde-light: #d8f171;
+   --gris: #9a927b;
+   --verde-oliva: #556b2f; 
+   --lila: #8a6a6b;
+   --morado: #805566;
+   --black: #000000;
+    --white: #ffffff;
+    --red-hat-display: 'Red Hat Display', sans-serif;
+    --montserrat-alternates: 'Montserrat Alternates', sans-serif;
+
+}
+
+.card_container{
+    width: calc((100% / 4) - 20px);
+    margin-bottom: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; 
+    margin: 0 auto;
+    max-width: 1200px;
+    margin: 0 auto
+  }
+
+.card {
+    width: 80%;
+    max-width: 300px;
+    background-color: var(--dar-see-gree, 0.5);
+    border: 1px solid #fff;
+    transition: border-color 0.3s ease-in-out;
+    border-radius: 10px;
+    padding: 24px;
+    text-align: center;
+    margin-bottom: 20px;
+    font-family: var(--montserrat-alternates);
+  }
+
+  .card:hover {
+    background-color: rgba(255, 255, 255, 0.6); 
+    border: 2px solid var(--verde-oliva);
+    
+  }
+
+.card_img {
+    width: 80%;
+    height: auto;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    border: 2px solid var(--gris);
+    
+}
+
+.card_h1 {
+    color: var(--morado);
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+.card:hover .card_h1 {
+  color: black;
+}
+
+  .card_p1 {
+    color: white;
+    font-size: 16px;
+    margin-bottom: 5px;
+  }
+  .card:hover .card_p1 {
+    color: black;
+  }
+
+  .card p:last-child {
+    margin-bottom: 10px;
+    color: white;
+    font-size: 14px;
+  }
+
+  .card:hover p:last-child {
+    color: black;
+  }
+
+  .dietList {
+    list-style: none;
+    align-items: center;
+  }

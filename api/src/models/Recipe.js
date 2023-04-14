@@ -15,7 +15,7 @@ module.exports = (sequelize) => {
       allowNull: false,
     },
     summary: {
-      type: DataTypes.TEXT,
+      type: DataTypes.STRING(250),
       allowNull: false
     },
     healthScore: {
@@ -23,16 +23,25 @@ module.exports = (sequelize) => {
       allowNull: false
     },
     steps:{
-      type: DataTypes.JSONB,
+      type: DataTypes.ARRAY(DataTypes.TEXT),
       allowNull: false
     },
+    // ingredients: {
+    //   type: DataTypes.ARRAY(DataTypes.STRING(250)),
+    // },
+    // cookWare:{
+    //   type: DataTypes.ARRAY(DataTypes.STRING(250))
+    // },
     image: {
       type: DataTypes.STRING(250),
       allowNull: false
     },
-    time: {
-      type: DataTypes.INTEGER,
+    price: {
+      type: DataTypes.FLOAT
     },
+    // time: {
+    //   type: DataTypes.INTEGER,
+    // },
     createdInDb:{
       type: DataTypes.BOOLEAN,
       allowNull: false,

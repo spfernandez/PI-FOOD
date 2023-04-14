@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@300;500;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,300;0,500;1,700&display=swap');
+
+
+:root {
+  --dar-see-gree: rgb(143, 188, 139);
+  --medium-aquamarine: rgb(102, 205, 170);
+  --gold: rgb(255, 215, 0);
+  --dark-magenta: rgb(139, 0, 139);
+   --marron: #eeda95;
+   --verde: #b7c27e;
+   --verde-light: #d8f171;
+   --gris: #9a927b;
+   --verde-oliva: #556b2f; 
+   --lila: #8a6a6b;
+   --morado: #805566;
+   --black: #000000;
+    --white: #ffffff;
+    --red-hat-display: 'Red Hat Display', sans-serif;
+    --montserrat-alternates: 'Montserrat Alternates', sans-serif;
+
+}
+
+
+.detail_container {
+  background-image: url('../../assets/img/flipsnack.jpeg');
+  top: 0;
+  left: 0;
+  background-color: var(--gris);
+  font-family: var(--montserrat-alternates);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.content{
+  flex: 1;
+  overflow-y: auto;
+}
+  
+.recipe_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--dar-see-gree, 0.7);
+  border: 2px solid #fff;
+  transition: border-color 0.3s ease-in-out;
+  border-radius: 20px;
+  padding: 24px;
+  margin: auto;
+  margin-top: 10px;
+  width: 80%;
+  box-shadow: 0px 0px 20px rgb(248, 248, 248, 0.2);
+  font-family: var(--montserrat-alternates);
+  color: var(--white);
+  }
+
+  .recipe_container:hover {
+    background-color: rgba(255, 255, 255, 0.3); 
+    border: 2px solid var(--verde-oliva);
+    color: var(--black);
+  }
+
+  .diets_health_container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .diets_container {
+    flex-basis: 50%;
+  }
+  
+  .health_score {
+    flex-basis: 50%;
+  }
+
+.recipe_container img {
+  display: block;
+  margin: 0 auto;
+  height: 300px;
+  width: 60%;
+  object-fit: cover;
+  border-radius: 20px 20px 0 0;
+  }
+
+.recipe_container h3 {
+  margin-top: 10px;
+  
+  }
+
+  .summary {
+    font-size: 15px;
+  }
+
+.title {
+  text-align: center;
+  margin-top: 15px;
+  margin-bottom: 5px;
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--dark-magenta);
+  font-weight: bold;
+  }
+
+  .stepList,
+  .dietList {
+    list-style: none;
+    align-items: center;
+  }
+  
+.close_button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--dark-magenta);
+  color: var(--white);
+  font-size: 1.2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}

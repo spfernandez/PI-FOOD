@@ -5,25 +5,20 @@ const getAllDiets = async () => {
     const dataApi = await getAllRecipes();
 
     const dietsApi = [...new Set(dataApi.flatMap(el => el.diets.map(d => d)))]
-    
-    console.log(dietsApi)
    
 
-    dietsApi.forEach(diet => {
-        Diets.findOrCreate({
-            where: {name: diet}
+    const diet = dietsApi.map(d => {
+        return Diets.findOrCreate({
+            where: {name: d}
         })
-    });
+    })
+    await Promise.all(diet);
 
     const dbDiets = await Diets.findAll();
     return dbDiets;
+    
 }
     
-
-
-
-
-
 module.exports = {
     getAllDiets
 };

@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@300;500;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,300;0,500;1,700&display=swap');
+
+
+:root {
+    --dar-see-gree: rgb(143, 188, 139);
+    --medium-aquamarine: rgb(102, 205, 170);
+    --gold: rgb(255, 215, 0);
+    --dark-magenta: rgb(139, 0, 139);
+     --marron: #eeda95;
+     --verde: #b7c27e;
+     --verde-light: #d8f171;
+     --gris: #9a927b;
+     --verde-oliva: #556b2f; 
+     --lila: #8a6a6b;
+     --morado: #805566;
+     --black: #000000;
+      --white: #ffffff;
+      --red-hat-display: 'Red Hat Display', sans-serif;
+      --montserrat-alternates: 'Montserrat Alternates', sans-serif;
+  
+  }
+
+.home {
+    background-image: url('../../assets/img/flipsnack.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+   
+    
+}
+
+.home_div2 {
+    border: 10px solid rgba(0, 0, 0, 0.2);
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 3px;
+}
+
+.list_ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+}
+
+.li_1,
+.li_2,
+.li_3,
+.li_4 {
+    margin-right: 10px;
+    flex: 1
+}
+
+.card_container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 15px;
+    margin: 15px;
+    gap: 1em;
+  }

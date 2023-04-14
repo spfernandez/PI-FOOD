@@ -20,7 +20,7 @@ const getRecipeByIdHandler = async (req, res) => {
         const recipeById = await getRecipeById(idRecipe);
         res.status(200).send(recipeById)
     } catch(error){
-        res.status(400).json({error:error.message})
+        res.status(400).json({error: error.message})
     }
 };
 
@@ -38,9 +38,9 @@ const postRecipeHandler = async (req, res) => {
 
 const putRecipeHandler = async (req, res) => {
     const {idRecipe} = req.params
-    const {name, summary, healthScore, steps, time, image, diets} = req.body
+    const {name, summary, healthScore, steps, image, diets} = req.body 
     try{
-        const update = await updateRecipes(idRecipe, name, summary, healthScore, steps, time, image, diets);
+        const update = await updateRecipes(idRecipe, name, summary, healthScore, steps, image, diets); 
         res.status(200).send(update)
     }catch(error){
         res.status(400).json({error: error.message})

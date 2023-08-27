@@ -6,7 +6,7 @@ const API_KEY1 = process.env.API_KEY1 || API_KEY;
 
 //En esta funcion hago el llamado a la api para que me devuelva el resultado de determinadas propiedades con los valores que necesito
 const getAllRecipes = async () => {
-    const apiFood = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY1}&addRecipeInformation=true&number=100`);
+    const apiFood = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&addRecipeInformation=true&number=100`);
     
     const apiRecipes = apiFood.data.results.map(d => {
         
